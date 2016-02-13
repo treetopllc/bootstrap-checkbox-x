@@ -48,6 +48,8 @@ View the [plugin documentation](http://plugins.krajee.com/checkbox-x) and [plugi
 2. Latest [JQuery](http://jquery.com/)
 3. Most browsers supporting CSS3 & JQuery. 
 
+> NOTE: You can use the sass branch for installation using bootstrap-sass dependency. The master branch can be used for installation using the default official bootstrap dependency.
+
 ## Installation
 
 ### Using Bower

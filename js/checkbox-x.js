@@ -114,11 +114,6 @@
                     break;
                 case options.valueUnchecked:
                     break;
-                default:
-                    if (options.threeState) {
-                        $el.prop('indeterminate', true);
-                    }
-                    break;
             }
         },
         validateCheckbox: function (newVal) {
@@ -159,11 +154,14 @@
             self.initialValue = self.$element.val();
         },
         getIndicator: function (hasThreeState) {
-            var self = this, options = self.options, icon = options.iconUnchecked, $el = self.$element, val = $el.val(),
-                isInd = $el.is(':checkbox') ? $el.prop('indeterminate') :
-                    (val !== options.valueUnchecked && (self.options.threeState || hasThreeState));
+            var self = this;
+            var options = self.options;
+            var icon = options.iconUnchecked;
+            var $el = self.$element;
+            var val = $el.val();
+
             return '<span class="cbx-icon">' +
-                (val === options.valueChecked ? options.iconChecked : (isInd ? options.iconNull : icon)) +
+                (val === options.valueChecked ? options.iconChecked : icon) +
                 '</span>';
         },
         render: function () {
@@ -199,11 +197,9 @@
 
     $.fn.checkboxX.defaults = {
         theme: '',
-        threeState: true,
         inline: true,
         iconChecked: '<i class="glyphicon glyphicon-ok"></i>',
         iconUnchecked: ' ',
-        iconNull: '<div class="cbx-icon-null"></div>',
         valueChecked: '1',
         valueUnchecked: '0',
         valueNull: '',
